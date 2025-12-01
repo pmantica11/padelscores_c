@@ -139,9 +139,6 @@ try:
     ratings_df = ratings_df.set_index('Title')
     st.dataframe(ratings_df, use_container_width=True, height="stretch")
 
-    if st.button("🔄 Refresh Data"):
-        st.rerun()
-
 except Exception as e:
     st.error(f"Error: {str(e)}")
     st.info("Please check your Google Sheets credentials in Streamlit secrets.")
