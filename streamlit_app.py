@@ -65,10 +65,11 @@ def assign_titles(ratings_series):
     # Remaining players divided into 3 equal groups: Gold, Silver, Bronze
     remaining_players = total_players - 3
     if remaining_players > 0:
-        players_per_tier = remaining_players / 3
-        gold_count = int(players_per_tier)
-        silver_count = int(players_per_tier)
-        bronze_count = remaining_players - gold_count - silver_count
+        base_count = remaining_players // 3
+        remainder = remaining_players % 3
+        gold_count = base_count + (1 if remainder > 0 else 0)
+        silver_count = base_count + (1 if remainder > 1 else 0)
+        bronze_count = base_count + (1 if remainder > 2 else 0)
         
         idx = 3
         # Gold tier
