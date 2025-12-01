@@ -137,7 +137,7 @@ try:
     ratings_df['Title'] = ratings_df['Player'].map(titles)
     ratings_df = ratings_df[['Player', 'Title', 'Rating']]
     ratings_df = ratings_df.set_index('Title')
-    st.dataframe(ratings_df, height="stretch")
+    st.dataframe(ratings_df, height="stretch", width="content")
 
 except Exception as e:
     st.error(f"Error: {str(e)}")
